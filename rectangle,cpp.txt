@@ -1,0 +1,57 @@
+#include <iostream>
+
+class Rectangle {
+private:
+    double length;
+    double breadth;
+
+public:
+   
+    Rectangle() {
+        length = 0.0;
+        breadth = 0.0;
+    }
+
+
+    Rectangle(double l, double b) {
+        length = l;
+        breadth = b;
+    }
+
+
+    Rectangle(const Rectangle &obj) {
+        length = obj.length;
+        breadth = obj.breadth;
+    }
+
+
+    double calculateArea() {
+        return length * breadth;
+    }
+
+   
+    void display() {
+        std::cout << "Length: " << length << ", Breadth: " << breadth << std::endl;
+        std::cout << "Area of Rectangle: " << calculateArea() << std::endl;
+        std::cout << "-----------------------------------" << std::endl;
+    }
+};
+
+int main() {
+   
+    std::cout << "Creating r1 using Default Constructor:" << std::endl;
+    Rectangle r1;
+    r1.display();
+
+    
+    std::cout << "Creating r2 using Parameterized Constructor (5.0, 4.0):" << std::endl;
+    Rectangle r2(5.0, 4.0);
+    r2.display();
+
+
+    std::cout << "Creating r3 using Copy Constructor (copying r2):" << std::endl;
+    Rectangle r3(r2);
+    r3.display();
+
+    return 0;
+}
